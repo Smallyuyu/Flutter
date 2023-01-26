@@ -1,1 +1,27 @@
+## 特性
+能跨平台開發（Mobile、Web、Desktop）
 
+* 以前：
+ios：Swift、OC
+Android：Java、Kotlin
+
+* 現今：
+Flutter：一套代碼能套用在多個平台上
+
+## Flutter框架結構
+* FrameWork(Dart)
+* Engine(C/C++)
+* Embedder
+
+##圖像
+* GPU -> Buffer緩衝區 -> 手機銀幕
+偵率：GPU生成到Buffer緩衝區的頻率
+刷新率：手機銀幕從Buffer緩衝區讀取的頻率
+
+* 當偵率與刷新率不同步時，呈現的畫面容易出現問題
+解決方案：Double Buffer雙重緩存
+GPU -> Back Buffer -> Frame Buffer -> 手機銀幕
+GPU寫入內容到Back Buffer
+Back Buffer接收到VSync信號後，將內容複製到Frame Buffer
+手機銀幕從Frame Buffer讀入內容
+手機銀幕讀入完成後，通知VSync，VSync在通知GPU寫入下一批內容* 
